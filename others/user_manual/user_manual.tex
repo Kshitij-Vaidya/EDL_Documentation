@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{lipsum} % For sample text, can be removed
+
+\begin{document}
+
+\title{Wall/Glass Pane Cleaning Drone}
+\author{User Manual}
+\date{\today}
+
+\maketitle
+
+\section{Introduction}
+This manual covers the essential steps for operating the drone. Before proceeding, ensure that all assembly is carried out correctly as per the existing GitHub repository instructions. 
+
+\section{Starting the Drone}
+\begin{enumerate}
+    \item \textbf{Connect the data cable} to the Pixhawk Cube flight controller.
+    \item \textbf{Connect the battery} to the rest of the circuit. This action powers all ESCs (Electronic Speed Controllers), and you should hear a short tune with three beeps indicating that all ESCs are successfully powered on.
+    \item \textbf{Connect the telemetry cable} to the laptop or desktop which is already connected to the Pixhawk. At this point, the ESCs are already booted, and this secondary connection ensures reliable communication with the flight controller.
+    \item \textbf{Wait for the telemetry device} to show a green light. Then, you may disconnect the data cable. You should see a prompt on the QGroundControl (QGC) terminal indicating that the drone has switched to the secondary (telemetry) connection.
+    \item \textbf{Reboot the software from QGC} - go to vehicle setup - go to parameters/tools and click reboot vehicle.
+    \item The drone is now ready for takeoff. You may fly it manually or select from various available flight modes (e.g., \textit{Position}, \textit{Hold}, \textit{Altitude}, \textit{Acro}, etc.).
+\end{enumerate}
+
+\section{Flight Modes}
+
+\subsection{Manual Mode}
+When using \textbf{Manual Mode}, ensure that the knob on the RadioMaster (used for selecting modes) is set accordingly. Make sure the throttle is set to zero on the radio controller on arming the drone. Control the throttle, roll, pitch, and yaw using your radio controller. This mode provides direct control of the drone’s flight attitude.
+
+\subsection{Position Mode}
+\textbf{Position Mode} allows waypoint navigation across multiple points. Either visually select or give the global coordinates of the points to be traversed. if no waypoints are specified then the drone will stay at the current coordinate. The drone will then automatically traverse the waypoints in sequence.
+
+\section{Takeoff Command}
+To command the drone to take off:
+\begin{enumerate}
+    \item open Analyze Tools$>>$Mavlink console on the QGC GUI.
+    \item Type the \verb|commander takeoff <height>| command. This will initiate an automatic takeoff procedure to the specified \texttt{<height>} in meters.
+
+\end{enumerate}
+
+\section{Pre-Startup Checks}
+
+\begin{enumerate}
+    \item Ensure that all the ESCs are properly connected to the power distribution board. Ensure that they are connected to the flight controller channels properly as well. The channels of the Pixhawk Cube must be mapped to the drone motors on the QGC and the same channel mapping must be followed while making the connections.
+    \item Ensure all sensor calibrations are completed on the QGC. This is not a recurrent task but it is good practice to check the calibration before every flight, specially when the drone is used in different environments.
+    \item All the propellers must be properly mounted and secured. They must all be of the same size, pitch and must be centrally balanced while attaching them to the motors. This is key to ensure that the drone does not flip over during takeoff.
+    \item Check for loose connections and wires if any. These must be secured properly before the flight and to avoid any disconnections during the flight and to avoid any entanglement with the propellers.
+    \item For the water spraying assembly, ensure that the pump is working properly and the connection from the motor driver to the pixhawk is secure. Check the system to ensure there are no leaks in the water tank and the water is not leaking into the drone body. The pump must be connected to the water tank and the water must be filled to the required level before the flight. 
+    \item Check that the battery is fully charged and properly connected to the drone. The battery must be secured properly to avoid any disconnections during the flight. The battery must be of the same voltage and capacity as specified in the specifications of the drone.
+    \item Check the radio controller to ensure that it is properly connected to the drone and the channels are mapped correctly. The radio controller must be of the same frequency as specified in the specifications of the drone.
+\end{enumerate}
+
+\section{Conclusion}
+With this setup, you can flexibly control the drone using manual inputs, or leverage automated waypoint navigation. Always maintain safety checks and follow the recommended calibration procedures before every flight.
+
+\end{document}
